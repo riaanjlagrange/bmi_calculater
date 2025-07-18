@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'input_page.dart';
 
+const Color appBarColor = Color(0xFFEB1555);
+
 void main() {
   runApp(BMICalculator());
 }
@@ -18,7 +20,7 @@ class BMICalculator extends StatelessWidget {
           primarySwatch: Colors.indigo,
           brightness: Brightness.dark,
         ),
-        appBarTheme: AppBarTheme(backgroundColor: Color(0xFF181870)),
+        appBarTheme: AppBarTheme(backgroundColor: appBarColor),
       ),
       home: InputPage(),
     );

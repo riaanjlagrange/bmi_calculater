@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -23,10 +24,7 @@ class GenderPicker extends StatelessWidget {
       children: <Widget>[
         getGenderIcon(),
         SizedBox(height: 15),
-        Text(
-          gender.toUpperCase(),
-          style: TextStyle(fontSize: 18, color: Color(0xFF8D8E98)),
-        ),
+        Text(gender.toUpperCase(), style: kLabelTextStyle),
       ],
     );
   }

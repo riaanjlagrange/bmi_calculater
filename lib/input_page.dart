@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'shaded_container.dart';
 import 'gender_picker.dart';
-
-// Color constants
-
-const Color tileColor = Color(0xFF1D1E33);
-const Color bottomContainerColor = Color(0xFFEB1555);
-
-const double bottomContainerHeight = 80.0;
-
-// active / inactive card colors
-
-const activeCardColor = Color(0xFF111328);
-const inactiveCardColor = Color(0xFF1D1E33);
+import 'constants.dart';
+import 'height_slider.dart';
 
 enum Gender { male, female }
-// Input page
+
+int height = 150;
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -41,53 +32,54 @@ class _InputPageState extends State<InputPage> {
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Expanded(
-                      child: GestureDetector(
-                        onTap: () {
+                      child: ShadedContainer(
+                        onPress: () {
                           setState(() {
                             selectedGender = Gender.male;
                           });
                         },
-                        child: ShadedContainer(
-                          color: selectedGender == Gender.male
-                              ? activeCardColor
-                              : inactiveCardColor,
-                          cardChild: GenderPicker(gender: "male"),
-                        ),
+                        color: selectedGender == Gender.male
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
+                        cardChild: GenderPicker(gender: "male"),
                       ),
                     ),
                     Expanded(
-                      child: GestureDetector(
-                        onTap: () {
+                      child: ShadedContainer(
+                        onPress: () {
                           setState(() {
                             selectedGender = Gender.female;
                           });
                         },
-                        child: ShadedContainer(
-                          color: selectedGender == Gender.female
-                              ? activeCardColor
-                              : inactiveCardColor,
-                          cardChild: GenderPicker(gender: "female"),
-                        ),
+                        color: selectedGender == Gender.female
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
+                        cardChild: GenderPicker(gender: "female"),
                       ),
                     ),
                   ],
                 ),
               ),
-              Expanded(child: ShadedContainer(color: tileColor)),
+              Expanded(
+                child: ShadedContainer(
+                  color: kTileColor,
+                  cardChild: HeightSlider(height: height),
+                ),
+              ),
               Expanded(
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
-                    Expanded(child: ShadedContainer(color: tileColor)),
-                    Expanded(child: ShadedContainer(color: tileColor)),
+                    Expanded(child: ShadedContainer(color: kTileColor)),
+                    Expanded(child: ShadedContainer(color: kTileColor)),
                   ],
                 ),
               ),
               Container(
-                color: bottomContainerColor,
+                color: kBottomContainerColor,
                 margin: EdgeInsets.only(top: 10.0),
                 width: double.infinity,
-                height: bottomContainerHeight,
+                height: kBottomContainerHeight,
               ),
             ],
           ),
